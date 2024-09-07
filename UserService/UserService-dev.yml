@@ -1,21 +1,22 @@
-server:
-  port: 6666
-
 spring:
-  application:
-    name: UserService-dev
-  config:
-    import: optional:configserver:http://localhost:8888
+  # config:
+  #   activate:
+  #     on-profile: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/userdb-dev
-    username: devuser
-    password: devpassword
+    url: jdbc:postgresql://postgres:5432/userdb
+    username: admin
+    password: admin@123
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
-
+server:
+  port: 6666
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://localhost:8762/eureka
+user:
+  test:
+    property: dev-value

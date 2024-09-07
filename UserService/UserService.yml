@@ -1,21 +1,12 @@
-server:
-  port: 6666
-
 spring:
   application:
     name: UserService
-  config:
-    import: optional:configserver:http://localhost:8888
-  datasource:
-    url: jdbc:postgresql://localhost:5432/userdb
-    username: admin
-    password: admin@123
   jpa:
-    hibernate:
-      ddl-auto: update
+    database: POSTGRESQL
     show-sql: true
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+    properties:
+      hibernate:
+        format_sql: true
+user:
+  test:
+    property: initial-value
